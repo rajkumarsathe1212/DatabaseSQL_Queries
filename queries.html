@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Queries</h1>
+
+    <h2>Some Important main Queries</h2>
+
+    <h3>
+        <ol>
+
+            <li>Create table in database</li>
+            <label>CREATE TABLE users (rollno INT, name VARCHAR(100),percentage DOUBLE)</label><br><br>
+            
+
+            <li> Insert data in table</li>
+            <label>INSERT INTO users (rollno, name, percentage) VALUES (1, Rajkumar, 83.40)</label><br><br>
+
+            <li>Update data in table</li>
+            <label>UPDATE users SET name = "Rajkumar Sathe" WHERE rollno = 1</label><br><br>
+
+            <li>Remove / Delete records from table</li>
+            <label>DELETE FROM users WHERE rollno = 1</label><br><br>
+
+            <li> Remove all records and reset table structure</li>
+            <label>TRUNCATE TABLE users</label><br><br>
+
+            <li> Delete Table</li>
+            <label>DROP TABLE users</label><br><br>
+
+        </ol>
+    </h3>
+
+    <h2>Sub-Queries</h2>
+
+    <ol>
+        <li><label>List users by name alphabetically</label></li>
+            <h3>SELECT * FROM users ORDER BY name</h3>
+
+
+        <li><label>List name,age,city of users by descending order of age</label></li>
+            <h3>SELECT name,age,city FROM users ORDER BY age DESC</h3>
+
+
+        <li><label>List users from Kolhapur by age Ascending</label></li>
+            <h3>SELECT * FROM users WHERE city = 'Kolhapur' ORDER BY age ASC</h3>
+            <label style="color: brown;">* Here ASC is optional....if you don't write ASC it consider it as ASC</label>
+
+        <li><label>List users from Pune whoes age is greater than 20</label></li>
+        <h3>SELECT * FROM users WHERE city = 'pune' AND age > 20</h3>
+
+        <li><label>List users whoes second character of name is 'a'</label></li>
+            <h4>SELECT * FROM users WHERE name LIKE '_a%'</h4>
+
+        <label>Third character of name is 'a'</label>
+            <h4>SELECT * FROM users WHERE name LIKE '__a%'</h4>
+
+        <label>Last character of name is 'a'</label>
+            <h4>SELECT * FROM users WHERE name LIKE '%a'</h4>
+
+        <label>Second Last character of name is 'a'</label>
+            <h4>SELECT * FROM users WHERE name LIKE '%a_'</h4>
+
+        <label>Anywhere in name character 'a'</label>
+            <h4>SELECT * FROM users WHERE name LIKE '%a%'</h4>
+
+        <li><label>List users whoes age is between 20 & 30 and gender is male</label></li>
+            <h3>SELECT * FROM users WHERE age>=20 AND age<=30 AND gender='male' </h3>
+                <label>OR</label>
+            <h4>SELECT * FROM users WHERE age BETWEEN 20 AND 30 AND gender = 'male'</h4>
+
+        <li><label>List users from kolhapur and pune</label></li>
+            <h3>SELECT * FROM users WHERE city = 'kolhapur' OR city = 'pune'</h3>
+                <label>OR</label>
+            <h4>SELECT * FROM users WHERE city IN('kolhapur','pune')</h4>
+
+        <li><label>list users who are not from kolhapur</label></li>
+            <h3>SELECT * FROM users WHERE city <> kolhapur</h3>
+        <label>OR</label>
+            <h4>SELECT * FROM users WHERE city NOT IN ('kolhapur')</h4>
+
+        <li>
+
+            <h2>Aggregative Functions</h2>
+                <ul>
+                    <li>COUNT</li>
+                    <li>MIN</li>
+                    <li>MAX</li>
+                    <li>AVG</li>
+                    <li>SUM</li> <br>
+                </ul>
+        </li>
+
+        <li><label>Find number of users in the table</label></li>
+            <h3>SELECT COUNT (*) AS total_users FROM users</h3>
+
+        <li><label>Find count of users from kolhapur</label></li>
+            <h3>SELECT COUNT (*) AS kop_users FROM users WHERE city = 'kolhapur'</h3>
+
+        <li><label>Find minimum age in users table</label></li>
+            <h3>SELECT MIN(age) AS min_age FROM users</h3>
+
+        <li><label>Find maximum age in users table</label></li>
+            <h3>SELECT MAX(age) AS max_age FROM users</h3>
+
+        <li><label>Find average age of users</label></li>
+            <h3>SELECT AVG(age) AS avg_age FROM users</h3>
+
+        <li><label>Find total age of users</label></li>
+            <h3>SELECT SUM(age) AS total_age FROM users</h3>
+
+        <h3>Group By(column wise aggregation)</h3>
+            <li><label>List city wise user count</label></li>
+                <h3>SELECT city COUNT(*) AS user_count FROM users GROUP BY city</h3>
+
+    </ol>
+</body>
+
+</html>
